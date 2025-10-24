@@ -31,6 +31,8 @@ namespace Form_Test
                     //ボタンのテキスト変更
                     testbutton.Text = "府中";
 
+                    testbutton.MouseHover += button1_Click;
+
                     //コントロールにボタンを追加
                     Controls.Add(testbutton);
                 }
