@@ -18,20 +18,11 @@ namespace Form_Test
 
            
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for (int d = 0; d < 4; d++)
+                for (int d = 0; d < 3; d++)
                 {
-                    Testbutton testbutton = new Testbutton();
-
-                    //ボタンの位置
-                    testbutton.Location = new Point(50 * i, 50*d);
-                    //ボタンのサイズ変更
-                    testbutton.Size = new Size(50, 50);
-                    //ボタンのテキスト変更
-                    testbutton.Text = "府中";
-
-                    testbutton.MouseHover += button1_Click;
+                    Testbutton testbutton = new Testbutton(new Point(50 * i, 50 * d),new Size(50, 50),"府中");
 
                     //コントロールにボタンを追加
                     Controls.Add(testbutton);
