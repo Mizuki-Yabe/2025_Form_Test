@@ -12,22 +12,36 @@ namespace Form_Test
 {
     public partial class Form1 : Form
     {
+        //constをつけると初期化時のみ値の変更ができる
+        const int BUTTON_SIZE_X = 100;
+        const int BUTTON_SIZE_Y = 100;
+
+        const int BOARD_SIZE_X = 3;
+        const int BOARD_SIZE_Y = 3;
+
+        private Testbutton[,] _buttonArray;
+
         public Form1()
         {
             InitializeComponent();
+            _buttonArray = new Testbutton[BOARD_SIZE_Y, BOARD_SIZE_X];
 
-           
-
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < BOARD_SIZE_X; i++)
             {
-                for (int d = 0; d < 3; d++)
+                for (int d = 0; d < BOARD_SIZE_Y; d++)
                 {
-                    Testbutton testbutton = new Testbutton(new Point(50 * i, 50 * d),new Size(50, 50),"府中");
+                    Testbutton testbutton = new Testbutton(new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * d),new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),"府中");
 
+
+                    _buttonArray[d,i] = testbutton;
+
+                    testbutton.SetEnable(false);
                     //コントロールにボタンを追加
                     Controls.Add(testbutton);
-                }
+                 }
             }
+
+            _buttonArray[1,0].SetEnable(true);
         }
 
         private void button1_Click(object sender, EventArgs e)
