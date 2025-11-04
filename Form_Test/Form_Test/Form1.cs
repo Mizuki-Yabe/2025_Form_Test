@@ -35,7 +35,9 @@ namespace Form_Test
             {
                 for (int d = 0; d < BOARD_SIZE_Y; d++)
                 {
-                    Testbutton testbutton = new Testbutton(this,new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * d),new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),"府中");
+                    Testbutton testbutton = new Testbutton(this,
+                                                           i,d,
+                                                           new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),"府中");
 
 
                     _buttonArray[d,i] = testbutton;

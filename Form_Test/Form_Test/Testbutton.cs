@@ -10,11 +10,18 @@ namespace Form_Test
     public class Testbutton : Button
     {
         private Color _onColor = Color.LightBlue;
-        private Color _offColor = Color.Yellow;
+        private Color _offColor = Color.LightGreen;
 
         private bool _enable;
 
         private Form1 _form1;
+
+        //横の位置
+        private int _x;
+
+        //縦の位置
+        private int _y;
+
 
         public void SetEnable(bool on)
         {
@@ -30,11 +37,16 @@ namespace Form_Test
         }
 
 
-        public Testbutton(Form1 form1,Point position,Size size, string text)
+        public Testbutton(Form1 form1,int x, int y,Size size, string text)
         {
-            _form1 = form1;
+            //横位置を保管
+            _x = x;
+            //縦位置を保管
+            _y = y;
 
-            Location = position;  //ボタンの大きさ
+            _form1 = form1;
+            
+            Location = new Point(x*size.Width,y*size.Width);  //ボタンの大きさ
             Size = size;  //
             Text = text;
 
@@ -45,8 +57,8 @@ namespace Form_Test
         }
         private void ClickEvent(object sender, EventArgs e)
         {
-            //
-            _form1.GetTestbutton(1, 1).SetEnable(true);
+            //かえたい変数などにカーソルを合わせてctrlおしながらR二回
+            _form1.GetTestbutton(_x,_y).SetEnable(true);
 
         }
 
