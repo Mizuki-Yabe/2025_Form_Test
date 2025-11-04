@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Form_Test
 {
-    internal class Testbutton : Button
+    public class Testbutton : Button
     {
         private Color _onColor = Color.LightBlue;
         private Color _offColor = Color.Yellow;
 
         private bool _enable;
 
-
+        private Form1 _form1;
 
         public void SetEnable(bool on)
         {
@@ -30,8 +30,10 @@ namespace Form_Test
         }
 
 
-        public Testbutton(Point position,Size size, string text)
+        public Testbutton(Form1 form1,Point position,Size size, string text)
         {
+            _form1 = form1;
+
             Location = position;  //ボタンの大きさ
             Size = size;  //
             Text = text;
@@ -43,7 +45,8 @@ namespace Form_Test
         }
         private void ClickEvent(object sender, EventArgs e)
         {
-            SetEnable(!_enable);
+            //
+            _form1.GetTestbutton(1, 1).SetEnable(true);
 
         }
 

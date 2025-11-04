@@ -21,6 +21,11 @@ namespace Form_Test
 
         private Testbutton[,] _buttonArray;
 
+        public Testbutton GetTestbutton(int x, int y)
+        {
+            return _buttonArray[y, x];
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +35,7 @@ namespace Form_Test
             {
                 for (int d = 0; d < BOARD_SIZE_Y; d++)
                 {
-                    Testbutton testbutton = new Testbutton(new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * d),new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),"府中");
+                    Testbutton testbutton = new Testbutton(this,new Point(BUTTON_SIZE_X * i, BUTTON_SIZE_Y * d),new Size(BUTTON_SIZE_X, BUTTON_SIZE_Y),"府中");
 
 
                     _buttonArray[d,i] = testbutton;
@@ -41,7 +46,7 @@ namespace Form_Test
                  }
             }
 
-            _buttonArray[1,0].SetEnable(true);
+            GetTestbutton(0,0).SetEnable(true);
         }
 
         private void button1_Click(object sender, EventArgs e)
