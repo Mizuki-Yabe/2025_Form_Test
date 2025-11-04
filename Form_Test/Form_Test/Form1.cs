@@ -23,6 +23,10 @@ namespace Form_Test
 
         public Testbutton GetTestbutton(int x, int y)
         {
+            //配列外参照対策
+            if (x < 0 || x >= BOARD_SIZE_X) return null;
+            if (y < 0 || y >= BOARD_SIZE_X) return null;
+
             return _buttonArray[y, x];
         }
 

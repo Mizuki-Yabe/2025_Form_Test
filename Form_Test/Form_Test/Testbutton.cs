@@ -37,6 +37,11 @@ namespace Form_Test
         }
 
 
+        public void Toggle()
+        {
+            SetEnable(!_enable);
+        }
+
         public Testbutton(Form1 form1,int x, int y,Size size, string text)
         {
             //横位置を保管
@@ -58,7 +63,7 @@ namespace Form_Test
         private void ClickEvent(object sender, EventArgs e)
         {
             //かえたい変数などにカーソルを合わせてctrlおしながらR二回
-            _form1.GetTestbutton(_x,_y).SetEnable(true);
+            _form1.GetTestbutton(_x,_y).Toggle();
 
         }
 
